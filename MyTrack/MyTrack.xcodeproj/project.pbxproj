@@ -33,6 +33,10 @@
 		956CE43629884A33005ACF42 /* Track.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 956CE43429884A33005ACF42 /* Track.storyboard */; };
 		956CE43829884A34005ACF42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 956CE43729884A34005ACF42 /* Assets.xcassets */; };
 		956CE43B29884A34005ACF42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 956CE43929884A34005ACF42 /* LaunchScreen.storyboard */; };
+		95BC374D2997E1D2006EB810 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BC374C2997E1D2006EB810 /* User.swift */; };
+		95BC374F2997E7FC006EB810 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BC374E2997E7FC006EB810 /* AuthViewModel.swift */; };
+		95BC37512997EB41006EB810 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BC37502997EB41006EB810 /* AppError.swift */; };
+		95BC37532997F721006EB810 /* RecoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BC37522997F721006EB810 /* RecoverViewModel.swift */; };
 		95DD29AA298EEDC200A11931 /* GMSStyleSpanExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DD29A9298EEDC200A11931 /* GMSStyleSpanExtension.swift */; };
 		95DD29AC298F97FE00A11931 /* MapsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DD29AB298F97FE00A11931 /* MapsManager.swift */; };
 		95FE722E298C379800F7C9EA /* TrackCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FE722D298C379800F7C9EA /* TrackCollectionViewController.swift */; };
@@ -73,6 +77,10 @@
 		956CE43729884A34005ACF42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		956CE43A29884A34005ACF42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		956CE43C29884A34005ACF42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95BC374C2997E1D2006EB810 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		95BC374E2997E7FC006EB810 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		95BC37502997EB41006EB810 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		95BC37522997F721006EB810 /* RecoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverViewModel.swift; sourceTree = "<group>"; };
 		95DD29A9298EEDC200A11931 /* GMSStyleSpanExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMSStyleSpanExtension.swift; sourceTree = "<group>"; };
 		95DD29AB298F97FE00A11931 /* MapsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsManager.swift; sourceTree = "<group>"; };
 		95FE722D298C379800F7C9EA /* TrackCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCollectionViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +147,8 @@
 				953B56BA298C4A5700590E4E /* Track.swift */,
 				953B56B8298C45AA00590E4E /* Location.swift */,
 				95195542298D66D50061F92D /* Session.swift */,
+				95BC374C2997E1D2006EB810 /* User.swift */,
+				95BC37502997EB41006EB810 /* AppError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -167,7 +177,9 @@
 				9555967C29926E420042CD05 /* Auth.storyboard */,
 				952319F0299519F900A50B61 /* AuthCoordinator.swift */,
 				9555967829926AE70042CD05 /* AuthViewController.swift */,
+				95BC374E2997E7FC006EB810 /* AuthViewModel.swift */,
 				9555967E2992D5570042CD05 /* RecoverViewController.swift */,
+				95BC37522997F721006EB810 /* RecoverViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -381,6 +393,7 @@
 				9555967A29926AE70042CD05 /* AuthViewController.swift in Sources */,
 				955596812992DDD00042CD05 /* UserViewController.swift in Sources */,
 				952319F1299519F900A50B61 /* AuthCoordinator.swift in Sources */,
+				95BC37532997F721006EB810 /* RecoverViewModel.swift in Sources */,
 				953B56BB298C4A5700590E4E /* Track.swift in Sources */,
 				953B56BD298CEBE500590E4E /* RealmService.swift in Sources */,
 				953B56C2298D0F5D00590E4E /* TrackCollectionReusableView.swift in Sources */,
@@ -391,11 +404,14 @@
 				952319C429950CDB00A50B61 /* Coordinator.swift in Sources */,
 				95DD29AA298EEDC200A11931 /* GMSStyleSpanExtension.swift in Sources */,
 				95195543298D66D50061F92D /* Session.swift in Sources */,
+				95BC37512997EB41006EB810 /* AppError.swift in Sources */,
 				952319ED299517CC00A50B61 /* ApplicationCoordinator.swift in Sources */,
 				95FE7231298C37AA00F7C9EA /* TrackCollectionViewCell.swift in Sources */,
 				952319EB2995174400A50B61 /* SceneDelegate.swift in Sources */,
+				95BC374F2997E7FC006EB810 /* AuthViewModel.swift in Sources */,
 				955CFA3429896D32000A9F5C /* TrackManager.swift in Sources */,
 				953B56C4298D1A2F00590E4E /* TrackViewControllerDelegate.swift in Sources */,
+				95BC374D2997E1D2006EB810 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

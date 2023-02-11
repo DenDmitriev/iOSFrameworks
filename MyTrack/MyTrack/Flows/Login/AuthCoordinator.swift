@@ -24,7 +24,8 @@ class AuthCoordinator: Coordinator {
             self?.showRecoverModule()
         }
         
-        controller.onLogin = { [weak self] in
+        controller.onLogin = { [weak self] user in
+            print(user)
             self?.onFinishFlow?()
         }
         

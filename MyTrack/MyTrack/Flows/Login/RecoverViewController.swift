@@ -8,38 +8,43 @@
 import UIKit
 
 class RecoverViewController: UIViewController {
+    
+    var viewModel: RecoverViewModel?
 
     @IBOutlet weak var loginTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        viewModel = RecoverViewModel()
     }
     
-    @IBAction func restoreDidTaped(_ sender: UIButton) {
-        guard
-            let login = loginTextField.text,
-            login == AuthViewController.Constant.login
-        else { return }
-        showPassword()
-    }
-    
-    private func showPassword() {
-        let alert = UIAlertController(title: "You password", message: "1234", preferredStyle: .alert)
+    fileprivate func presentAlert(_ error: AppError) {
+        let alert = UIAlertController(title: error.title, message: error.description, preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok", style: .cancel)
         alert.addAction(action)
         present(alert, animated: true)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func restoreDidTaped(_ sender: UIButton) {
+        guard
+            let login = loginTextField.text
+        else { return }
+        
+        viewModel?.getPassword(by: login, completion: { [weak self] (password, error) in
+            if let error = error {
+                self?.presentAlert(error)
+            } else {
+                self?.showPassword(password: password ?? "N/A")
+            }
+        })
     }
-    */
+    
+    private func showPassword(password: String) {
+        let alert = UIAlertController(title: "You password", message: password, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .cancel)
+        alert.addAction(action)
+        present(alert, animated: true)
+    }
 
 }

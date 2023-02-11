@@ -17,6 +17,8 @@ class RealmService {
         print(string)
     }
     
+    //MARK: - Tracks funcs
+    
     func addTrack(startTime: Date, finishTime: Date, distance: Double, locations: [Location]) {
         guard let realm = realm else { return }
         
@@ -101,4 +103,90 @@ class RealmService {
             print(error)
         }
     }
+    
+    //MARK: - User funcs
+    
+    struct Error: AppError {
+        var title: String
+        var description: String?
+        
+        init(title: String?, description: String? = nil) {
+            self.title = title ?? "Unknown error"
+            self.description = description
+        }
+        
+        static let realmError = Error(title: "Realm context error")
+        static let passwordIncorrect = Error(title: "Incorrect password")
+        static let userNotFound = Error(title: "User is not find")
+    }
+    
+    func addUser(login: String, password: String, age: Int? = nil, gender: Bool? = nil, completion: @escaping ((User?, Error?) -> Void)) {
+        guard let realm = realm else {
+            completion(nil, .realmError)
+            return
+        }
+        
+        if let user = realm.objects(User.self).first(where: { $0.login.lowercased() == login.lowercased() }) {
+            //return false
+            //Если он существует, измените ему пароль (да, это нелогично с точки зрения здравого смысла, но для обучения – хороший вариант).
+            do {
+                user.password = password
+                try realm.write {
+                    realm.add(user, update: .modified)
+                }
+                completion(user, nil)
+            } catch {
+                print(error.localizedDescription)
+                completion(nil , Error(title: "Realm modifi error", description: error.localizedDescription))
+            }
+        } else {
+            let user = User()
+            user.login = login
+            user.password = password
+            user.age = age
+            user.gender = gender
+            
+            do {
+                try realm.write {
+                    realm.add(user)
+                }
+                completion(user, nil)
+            } catch {
+                print(error.localizedDescription)
+                completion(nil , Error(title: "Realm write error", description: error.localizedDescription))
+            }
+        }
+    }
+    
+    func verifyUser(login: String, password: String, completion: @escaping ((User?, Error?) -> Void)) {
+        guard let realm = realm else {
+            completion(nil, .realmError)
+            return
+        }
+        
+        if let user = realm.object(ofType: User.self, forPrimaryKey: login)  {
+            switch user.password == password {
+            case true:
+                completion(user, nil)
+            case false:
+                completion(user, .passwordIncorrect)
+            }
+        } else {
+            completion(nil, .userNotFound)
+        }
+    }
+    
+    func getPassword(for login: String, completion: @escaping ((String?, Error?) -> Void)) {
+        guard let realm = realm else {
+            completion(nil, .realmError)
+            return
+        }
+        
+        if let user = realm.object(ofType: User.self, forPrimaryKey: login)  {
+            completion(user.password, nil)
+        } else {
+            completion(nil, .userNotFound)
+        }
+    }
+
 }
