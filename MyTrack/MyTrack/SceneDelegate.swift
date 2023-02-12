@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        GMSServices.provideAPIKey("AIzaSyATqWtN9O5OZ4kyu6DTbqDP1DrcLAlBtIc")
+        GMSServices.provideAPIKey("")
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
