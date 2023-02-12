@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-//        GMSServices.provideAPIKey("AIzaSyATqWtN9O5OZ4kyu6DTbqDP1DrcLAlBtIc")
+       GMSServices.provideAPIKey("")
 //        window = UIWindow(frame: UIScreen.main.bounds)
 //
 //        let storyboard = UIStoryboard(name: "Launch", bundle: nil)
