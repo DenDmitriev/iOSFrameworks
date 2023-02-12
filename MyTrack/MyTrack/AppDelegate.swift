@@ -11,15 +11,22 @@ import GoogleMaps
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+//    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        GMSServices.provideAPIKey("AIzaSyATqWtN9O5OZ4kyu6DTbqDP1DrcLAlBtIc")
-        
+//        GMSServices.provideAPIKey("")
+//        window = UIWindow(frame: UIScreen.main.bounds)
+//
+//        let storyboard = UIStoryboard(name: "Launch", bundle: nil)
+//
+//        self.window?.rootViewController = storyboard.instantiateInitialViewController()
+//        self.window?.makeKeyAndVisible()
+//
         return true
     }
 
+    
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
@@ -32,6 +39,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        print(#function)
     }
 
 
