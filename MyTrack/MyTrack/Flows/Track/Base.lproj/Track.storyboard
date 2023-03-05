@@ -235,19 +235,9 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSM-Jd-5AS">
-                                    <rect key="frame" x="306" y="7.6666666666666679" width="67" height="35"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="Close"/>
-                                    <connections>
-                                        <action selector="closeDidTaped:" destination="xGw-yY-iBS" eventType="touchUpInside" id="RnV-ar-ecc"/>
-                                    </connections>
-                                </button>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="YSM-Jd-5AS" firstAttribute="centerY" secondItem="MNS-ML-dfD" secondAttribute="centerY" id="2uB-Yj-mNb"/>
                                 <constraint firstItem="wyk-L9-77g" firstAttribute="centerY" secondItem="MNS-ML-dfD" secondAttribute="centerY" id="8lJ-iN-IOH"/>
-                                <constraint firstAttribute="trailing" secondItem="YSM-Jd-5AS" secondAttribute="trailing" constant="20" symbolic="YES" id="Dgj-TC-Fik"/>
                                 <constraint firstItem="wyk-L9-77g" firstAttribute="centerX" secondItem="MNS-ML-dfD" secondAttribute="centerX" id="kTe-fz-pGT"/>
                             </constraints>
                             <connections>

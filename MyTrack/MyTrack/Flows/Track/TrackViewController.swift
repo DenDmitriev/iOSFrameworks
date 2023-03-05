@@ -161,7 +161,7 @@ class TrackViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    private func configureTrack() {
+    func configureTrack() {
         guard
             let startLocation = trackManager?.locations.first,
             let finishLoaction = trackManager?.locations.last
@@ -273,7 +273,7 @@ class TrackViewController: UIViewController {
     
     //MARK: - Maps functions
     
-    private func removeTrackFromMap() {
+    func removeTrackFromMap() {
         mapView.clear()
         trackManager = nil
     }

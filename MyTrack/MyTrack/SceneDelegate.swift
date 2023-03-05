@@ -23,6 +23,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.makeKeyAndVisible()
         
+        let center = UNUserNotificationCenter.current()
+        center.delegate = self
+        
         coordinator = ApplicationCoordinator()
         coordinator?.start()
     }
@@ -59,7 +62,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
+}
 
-
+extension SceneDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        print(#function)
+        
+        let userInfo = response.notification.request.content.userInfo
+        if let nameController = userInfo["controller"] as? String {
+            print(nameController)
+            switch nameController {
+            case "TracksCoordinator":
+                guard
+                    let coordinator = coordinator?.child.last as? TrackCoordinator,
+                    let trackController = coordinator.rootController?.viewControllers.last as? TrackViewController
+                else { return }
+                
+                trackController.onTracks?()
+            default:
+                return
+            }
+        }
+    }
 }
 

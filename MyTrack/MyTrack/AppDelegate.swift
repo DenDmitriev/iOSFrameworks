@@ -15,16 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-//        GMSServices.provideAPIKey("")
-//        window = UIWindow(frame: UIScreen.main.bounds)
-//
-//        let storyboard = UIStoryboard(name: "Launch", bundle: nil)
-//
-//        self.window?.rootViewController = storyboard.instantiateInitialViewController()
-//        self.window?.makeKeyAndVisible()
-        
         let center = UNUserNotificationCenter.current()
-        center.delegate = self
+        //center.delegate = self
         requestPermisson(center: center)
         
         return true
@@ -49,18 +41,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func createContent() -> UNNotificationContent {
         let content = UNMutableNotificationContent()
-        content.title = "Title"
-        content.subtitle = "Subtitle"
-        content.body = "Body"
+        content.title = "Tracks"
+        content.subtitle = "See your latest tracks"
+        content.body = "go to tracks controller"
         content.sound = .default
         //content.badge = 1
-        content.userInfo = ["controller" : "someController"]
+        content.userInfo = ["controller" : "TracksCoordinator"]
         
         return content
     }
     
     private func createTrigger() -> UNNotificationTrigger {
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
         
         return trigger
     }
@@ -95,15 +87,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
-}
-
-extension AppDelegate: UNUserNotificationCenterDelegate {
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        print(#function)
-        
-        let userInfo = response.notification.request.content.userInfo
-        if let nameController = userInfo["controller"] as? String {
-            print(nameController)
-        }
-    }
 }

@@ -8,19 +8,16 @@
 import UIKit
 
 class TrackCoordinator: Coordinator {
+    
     var rootController: UINavigationController?
     
     var onFinishFlow: (() -> Void)?
-    
-    func start(with track: Track?) {
-        showTrackModule(with: track)
-    }
     
     override func start() {
         showTrackModule()
     }
     
-    private func showTrackModule(with track: Track? = nil) {
+    private func showTrackModule() {
         guard let controller = UIStoryboard(name: "Track", bundle: nil).instantiateViewController(withIdentifier: "TrackViewController") as? TrackViewController else { return }
         
         controller.onUser = { [weak self] in
@@ -29,10 +26,6 @@ class TrackCoordinator: Coordinator {
         
         controller.onTracks = { [weak self] in
             self?.showTracksModule()
-        }
-        
-        if let track = track {
-            controller.trackManager = TrackManager(track: track)
         }
         
         let rootController = UINavigationController(rootViewController: controller)
@@ -53,14 +46,22 @@ class TrackCoordinator: Coordinator {
     }
     
     private func showTracksModule() {
-        let coordinator = TracksCoordinator()
         
-        coordinator.onFinishFlow = { [weak self, weak coordinator] track in
-            self?.removeDependency(coordinator)
-            self?.start(with: track)
+        guard let controller = UIStoryboard(name: "Track", bundle: nil).instantiateViewController(withIdentifier: "TrackCollectionViewController") as? TrackCollectionViewController else { return }
+        
+        controller.toTrack = { [weak self] track in
+            self?.rootController?.popViewController(animated: true)
+            guard
+                let track = track,
+                let trackController = self?.rootController?.viewControllers.last as? TrackViewController
+            else { return }
+            
+            trackController.removeTrackFromMap()
+            trackController.trackManager = TrackManager(track: track)
+            trackController.configureTrack()
         }
         
-        addDependency(coordinator)
-        coordinator.start()
+        rootController?.pushViewController(controller, animated: true)
+        
     }
 }

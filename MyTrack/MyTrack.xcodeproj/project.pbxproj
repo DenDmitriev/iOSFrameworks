@@ -33,7 +33,6 @@
 		956CE43829884A34005ACF42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 956CE43729884A34005ACF42 /* Assets.xcassets */; };
 		956CE43B29884A34005ACF42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 956CE43929884A34005ACF42 /* LaunchScreen.storyboard */; };
 		95BB70B3299E3214003A451F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BB70B2299E3214003A451F /* LocationManager.swift */; };
-		95BB70B5299E9803003A451F /* TracksCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BB70B4299E9803003A451F /* TracksCoordinator.swift */; };
 		95BB70B7299EA98C003A451F /* CLLocationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BB70B6299EA98C003A451F /* CLLocationExtension.swift */; };
 		95BC374D2997E1D2006EB810 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BC374C2997E1D2006EB810 /* User.swift */; };
 		95BC374F2997E7FC006EB810 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BC374E2997E7FC006EB810 /* AuthViewModel.swift */; };
@@ -78,7 +77,6 @@
 		956CE43A29884A34005ACF42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		956CE43C29884A34005ACF42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95BB70B2299E3214003A451F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		95BB70B4299E9803003A451F /* TracksCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksCoordinator.swift; sourceTree = "<group>"; };
 		95BB70B6299EA98C003A451F /* CLLocationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationExtension.swift; sourceTree = "<group>"; };
 		95BC374C2997E1D2006EB810 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		95BC374E2997E7FC006EB810 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -114,7 +112,6 @@
 		9509372E29900CAF001E4EA5 /* Tracks */ = {
 			isa = PBXGroup;
 			children = (
-				95BB70B4299E9803003A451F /* TracksCoordinator.swift */,
 				95FE722D298C379800F7C9EA /* TrackCollectionViewController.swift */,
 				953B56C1298D0F5D00590E4E /* TrackCollectionReusableView.swift */,
 				95FE722F298C37AA00F7C9EA /* TrackCollectionViewCell.swift */,
@@ -400,7 +397,6 @@
 				953B56BB298C4A5700590E4E /* Track.swift in Sources */,
 				95BB70B7299EA98C003A451F /* CLLocationExtension.swift in Sources */,
 				953B56BD298CEBE500590E4E /* RealmService.swift in Sources */,
-				95BB70B5299E9803003A451F /* TracksCoordinator.swift in Sources */,
 				953B56C2298D0F5D00590E4E /* TrackCollectionReusableView.swift in Sources */,
 				952319F3299523A200A50B61 /* UserCoordinator.swift in Sources */,
 				9555967F2992D5570042CD05 /* RecoverViewController.swift in Sources */,

@@ -50,10 +50,6 @@ class TrackCollectionViewController: UICollectionViewController {
             toTrack?(track)
         }
     }
-
-    @IBAction func closeDidTaped(_ sender: UIButton) {
-        toTrack?(nil)
-    }
     
     // MARK: UICollectionViewDataSource
     
