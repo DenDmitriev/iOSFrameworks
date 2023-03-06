@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--User View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="UserViewController" id="Y6W-OH-hqX" customClass="UserViewController" customModule="MyTrack" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KlG-Qt-BGW">
+                                <rect key="frame" x="163" y="193" width="67" height="33.666666666666657"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bRE-wi-GoG" customClass="UserView" customModule="MyTrack" customModuleProvider="target">
+                                <rect key="frame" x="132.66666666666666" y="59" width="127.99999999999997" height="128"/>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="RgG-3k-KkY"/>
+                                    <constraint firstAttribute="height" constant="128" id="kac-7u-0S4"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="person.circle.fill" catalog="system"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Xru-UD-pEh">
+                                <rect key="frame" x="154" y="725.33333333333337" width="85.333333333333314" height="76.666666666666629"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tlF-eY-XyG">
+                                        <rect key="frame" x="0.0" y="0.0" width="85.333333333333329" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="To track"/>
+                                        <connections>
+                                            <action selector="toTrackDidTaped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ItD-sM-KU7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rn7-3r-hmY">
+                                        <rect key="frame" x="0.0" y="42.333333333333258" width="85.333333333333329" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="Logout"/>
+                                        <connections>
+                                            <action selector="logoutDidTaped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="0ev-dj-iyh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fuR-sg-INw">
+                                <rect key="frame" x="224.66666666666666" y="152" width="35.999999999999972" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="36" id="BML-Ey-RGs"/>
+                                    <constraint firstAttribute="height" constant="35" id="NLK-pv-k1B"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="photo.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="imagePickerAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="QcH-gR-xFS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Xru-UD-pEh" secondAttribute="bottom" constant="16" id="1NS-sK-Zx9"/>
+                            <constraint firstItem="fuR-sg-INw" firstAttribute="bottom" secondItem="bRE-wi-GoG" secondAttribute="bottom" id="DKh-aw-Wph"/>
+                            <constraint firstItem="KlG-Qt-BGW" firstAttribute="top" secondItem="bRE-wi-GoG" secondAttribute="bottom" constant="6" id="Gdf-Xr-ts9"/>
+                            <constraint firstItem="bRE-wi-GoG" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="HPS-IT-Tt9"/>
+                            <constraint firstItem="bRE-wi-GoG" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="QIO-nU-ifH"/>
+                            <constraint firstItem="Xru-UD-pEh" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="ehQ-dr-SE3"/>
+                            <constraint firstItem="KlG-Qt-BGW" firstAttribute="centerX" secondItem="bRE-wi-GoG" secondAttribute="centerX" id="sge-We-Tmf"/>
+                            <constraint firstItem="fuR-sg-INw" firstAttribute="trailing" secondItem="bRE-wi-GoG" secondAttribute="trailing" id="uu3-4G-a5e"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="loginLabel" destination="KlG-Qt-BGW" id="K2J-DB-bXV"/>
+                        <outlet property="userView" destination="bRE-wi-GoG" id="RyW-Wm-tfw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="113.74045801526717" y="-2.1126760563380285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="person.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="photo.circle.fill" catalog="system" width="128" height="123"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
